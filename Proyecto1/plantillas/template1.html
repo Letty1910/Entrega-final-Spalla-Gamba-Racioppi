@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos al Grupo Conci</title>
+</head>
+<body>
+    <h1>Bienvenidos clientes del Grupo Conci!</h1>
+    <p>Esto es una plantilla</p>
+    <p style="color: red"> Mi nombre es: {{nombre}}</p>
+    <p style="color: green;"> Mi apellido es: {{apellido}}</p>
+    <p>Este template fue creado: {{hoy}}</p>
+
+    <h3> Estas son mis notas: </h3>
+
+    <p>
+        {% for n in Notas %} 
+        {% if n < 4 %}
+            <p style="color: red" > Nota Mala: {{ n }}</p>
+        {% else %}
+            <p style="color: green" > Nota Buena: {{ n }}</p>
+        {% endif %}
+
+        {% endfor %}
+    </p>
+</body>
+</html>
