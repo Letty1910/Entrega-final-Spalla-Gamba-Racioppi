@@ -1,22 +1,27 @@
 from django.db import models
-    
-class cliente(models.Model):
-    nombre_completo = models.CharField(max_length=50)
-    cuit = models.IntegerField()
+
+class Cliente(models.Model):
+    nombre_completo = models.CharField(max_length=100)
+    cuit = models.CharField(max_length=11)
     email = models.EmailField()
-    localidad = models.CharField(max_length=50)
+    telefono = models.CharField(max_length=15)
+    localidad = models.CharField(max_length=100)
 
-class tractores(models.Model):
-    familia = models.CharField(max_length=30)
-    modelo = models.CharField(max_length=30)
-    serie = models.CharField(max_length=30)
+    def __str__(self):
+        return self.nombre_completo
 
-class cosechadoras(models.Model):
-    familia = models.CharField(max_length=30)
-    modelo = models.CharField(max_length=30)
-    serie = models.CharField(max_length=30)
+class Tractor(models.Model):
+    familia = models.CharField(max_length=100)
+    modelo = models.CharField(max_length=100)
+    serie = models.CharField(max_length=100)
 
-class ventas(models.Model):
-    cuit = models.IntegerField()
-    fecha_de_venta = models.DateField()
-    entregado = models.BooleanField()  
+    def __str__(self):
+        return f"{self.familia} {self.modelo}"
+
+class Cosechadora(models.Model):
+    familia = models.CharField(max_length=100)
+    modelo = models.CharField(max_length=100)
+    serie = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.familia} {self.modelo}"

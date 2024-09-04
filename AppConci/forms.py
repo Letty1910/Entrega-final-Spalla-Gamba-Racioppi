@@ -1,21 +1,39 @@
-from django import forms    
-class clienteFormulario(forms.Form):
-    nombre_completo = forms.CharField(max_length=50)
-    cuit = forms.IntegerField()
-    email = forms.EmailField()
-    localidad = forms.CharField(max_length=50)
+from django import forms
+from AppConci.models import Cliente, Tractor, Cosechadora
 
-class tractoresFormulario(forms.Form):
-    familia = forms.CharField(max_length=30)
-    modelo = forms.CharField(max_length=30)
-    serie = forms.CharField(max_length=30)
+class clienteFormulario(forms.ModelForm):
+    class Meta:
+        model = Cliente
+        fields = ['nombre_completo', 'cuit', 'email', 'telefono', 'localidad' ]
+        # nombre_completo = forms.CharField(max_length=50)
+        # cuit = forms.IntegerField()
+        # email = forms.EmailField()
+        # telefono = forms.CharField()
+        # localidad = forms.CharField(max_length=50)
 
-class cosechadorasFormulario(forms.Form):
-    familia = forms.CharField(max_length=30)
-    modelo = forms.CharField(max_length=30)
-    serie = forms.CharField(max_length=30)
+class tractoresFormulario(forms.ModelForm):
+    class Meta:
+        model = Tractor
+        fields = ['familia', 'modelo', 'serie']
 
-class ventasFormulario(forms.Form):
-    cuit = forms.IntegerField()
-    fecha_de_venta = forms.DateField()
-    entregado = forms.BooleanField()  
+        # familia = forms.CharField(max_length=30)
+        # modelo = forms.CharField(max_length=30)
+        # serie = forms.CharField(max_length=30)
+
+class cosechadorasFormulario(forms.ModelForm):
+    class Meta:
+        model = Cosechadora
+        fields = ['familia', 'modelo', 'serie']
+        # familia = forms.CharField(max_length=30)
+        # modelo = forms.CharField(max_length=30)
+        # serie = forms.CharField(max_length=30)
+
+# class SearchForm(forms.Form):
+#     query = forms.CharField(label='Concepto', max_length=100)
+
+class SearchForm(forms.Form):
+    query = forms.CharField(
+        label='Concepto',
+        required=True,
+        error_messages={'required': 'Este campo es obligatorio'}
+    )

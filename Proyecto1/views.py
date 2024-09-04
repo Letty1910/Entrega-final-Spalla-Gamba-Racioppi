@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.template import Template, Context
 from django.template import loader
-from AppConci.models import cliente
+from AppConci.models import Cliente
 
 def saludo(request):
     return HttpResponse("Hola clientes del Grupo Conci")
@@ -45,7 +45,7 @@ def probando_template(request):
     return HttpResponse(documento)
 
 def agregar_cliente(request, nom, cuit, email, localidad):
-    cliente = cliente(nombre_completo=nom, cuit=cuit, email=email, localidad=localidad)
+    cliente = Cliente(nombre_completo=nom, cuit=cuit, email=email, localidad=localidad)
     cliente.save()
 
     return HttpResponse("Se ha agregado un nuevo cliente")

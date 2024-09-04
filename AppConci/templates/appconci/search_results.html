@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Search Results</h2>
+<h3>Clientes</h3>
+<ul>
+    {% for cliente in clientes %}
+    <li>{{ cliente.nombre_completo }}</li>
+    {% endfor %}
+</ul>
+<h3>Tractores</h3>
+<ul>
+    {% for tractor in tractores %}
+    <li>{{ tractor.familia }} {{ tractor.modelo }}</li>
+    {% endfor %}
+</ul>
+<h3>Cosechadoras</h3>
+<ul>
+    {% for cosechadora in cosechadoras %}
+    <li>{{ cosechadora.familia }} {{ cosechadora.modelo }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

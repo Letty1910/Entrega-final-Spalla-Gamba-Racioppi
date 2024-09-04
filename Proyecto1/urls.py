@@ -31,5 +31,13 @@ urlpatterns = [
     path('agregar_cosechadora/<familia>/<modelo>/<serie>', agregar_cosechadora),
     path('agregar_tractor/<familia>/<modelo>/<serie>', agregar_tractor),
     path('agregar_venta/<cuit>/<fecha>/<entregado>', agregar_venta),
-    
 ]
+
+#Copilot
+# from django.contrib import admin
+# from django.urls import path, include
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', include('myapp.urls')),
+# ]
