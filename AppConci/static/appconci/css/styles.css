@@ -10837,3 +10837,16 @@ section {
   padding-top: 9rem;
   padding-bottom: 9rem;
 }
+
+.btn-custom-grey {
+  background-color: #d3d3d3; /* Gris claro */
+  color: #000; /* Color del texto */
+}
+
+header {
+  background-image: url("{% static 'images/fondo.jpg' %}");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white; /* Asegúrate de que el texto sea legible */
+}

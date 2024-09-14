@@ -135,7 +135,7 @@ class CosechadoraDelete(LoginRequiredMixin, DeleteView):
 
 # CREACION MAQUINA
 
-class InstrumentoCreacion(LoginRequiredMixin, CreateView):
+class MaquinaCreacion(LoginRequiredMixin, CreateView):
     model = MaquinaAgricola
     form_class = FormularioNuevaMaquina
     success_url = reverse_lazy('appconci')
@@ -143,7 +143,7 @@ class InstrumentoCreacion(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(InstrumentoCreacion, self).form_valid(form)
+        return super(MaquinaCreacion, self).form_valid(form)
 
 # COMENTARIOS
 
@@ -160,7 +160,7 @@ class ComentarioPagina(LoginRequiredMixin, CreateView):
 # ACERCA DE MI
 
 def about(request):
-    return render(request, 'home/acercaDeMi.html', {})
+    return render(request, 'appconci/AcercaDeMi.html', {})
 
 # from django.shortcuts import render, redirect
 # from django.http import HttpResponse

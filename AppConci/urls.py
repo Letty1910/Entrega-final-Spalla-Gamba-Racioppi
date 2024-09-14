@@ -1,7 +1,7 @@
 from django import views
 from django.contrib import admin
 from django.urls import path
-from .views import TractorDelete, InstrumentoCreacion, TractorDetalle, CosechadoraLista, TractorLista, CosechadoraDetalle, TractorUpdate, CosechadoraUpdate, CosechadoraDelete, LoginPagina, RegistroPagina, UsuarioEdicion, CambioPassword, HomeView, ComentarioPagina
+from .views import TractorDelete, MaquinaCreacion, TractorDetalle, CosechadoraLista, TractorLista, CosechadoraDetalle, TractorUpdate, CosechadoraUpdate, CosechadoraDelete, LoginPagina, RegistroPagina, UsuarioEdicion, CambioPassword, HomeView, ComentarioPagina
 from django.contrib.auth.views import LogoutView
 from . import views
 
@@ -49,7 +49,7 @@ urlpatterns = [
     # path('bateriaBorrado/<int:pk>/', BateriaDelete.as_view(), name='bateria_eliminar'),
     # path('otroBorrado/<int:pk>/', OtroDelete.as_view(), name='otro_eliminar'),
 
-    path('instrumentoCreacion/', InstrumentoCreacion.as_view(), name='nuevo'),
+    path('MaquinaCreacion/', MaquinaCreacion.as_view(), name='nuevo'),
 
     path('tractorDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
     path('cosechadoraDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
@@ -59,7 +59,7 @@ urlpatterns = [
     # path('tecladoDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
     # path('otroDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
 
-    path('acercaDeMi/', views.about, name='acerca_de_mi'),
+    path('AcercaDeMi/', views.about, name='acerca_de_mi'),
 ]
 
 
