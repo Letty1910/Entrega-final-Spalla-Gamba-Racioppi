@@ -1,0 +1,43 @@
+{% extends 'appconci/home.html' %}
+
+{% block content %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{tractor.titulo}}</h4></p>
+
+{% if tractor.imagenInstrumento %}
+    <p><img src="{{tractor.imagenTractor.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{tractor.marca}}</p>
+<p>Modelo: {{tractor.modelo}}</p>
+<p>Descripción: {{tractor.descripcion}}</p>
+<p>Año: {{tractor.year}}</p>
+<p>Precio(US$): {{tractor.precio}}</p>
+<p>Teléfono de Contacto: {{tractor.telefonoContacto}}</p>
+<p>Email de Contacto: {{tractor.emailContacto}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not tractor.comentarios.all %}
+        No han comentado este instrumento
+    {% else %}
+        {% for comentario in tractor.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' tractor.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock %}

@@ -1,0 +1,45 @@
+
+{% extends 'appconci/home.html' %}
+{% load static %}
+
+{% block content %}
+
+<br>
+<br>
+
+
+    <div class="container">
+       <h2 class="text-center text-dark">
+           Acerca de Nosotros
+       </h2>
+       <br>
+       <div class="row g-4">
+           <div class="col-md-6 col-lg-3">
+               <div class="card bg-success">
+                    <div class="card-body text-center">
+                        <img src="{% static 'images/Foto conci.jpeg' %}" class="rounded-circle mb-3" width="150px">
+                    <h3 class="card-title mb-3">Agustín Spalla</h3>
+                    <p class="card-text">Python Developer Jr.</p>
+                    <p class="card-text">Sigueme en:</p>
+                    <a href="https://github.com/Spalla88"><i class="bi bi-github text-dark mx-1"></i></a>
+                    <a href="www.linkedin.com/in/agustin-spalla-0a17b577"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                    </div>
+               </div>
+           </div>
+           <div class="col">
+            <div class="">
+                 <div class="text-center">
+                    <p>Hola que tal! Somos Agustin Spalla, Leandro Racioppi y Leticia Gamba. Los tres trabajamos en la empresa CONCI S.A. la cual se dedica a la comercializacion de productos del agro. Los tres estamos en el area de datos y estamos buscando profesionalizarnos en el area. Gracias por visitar nuestra página y no dejes de seguirnos en nuestras redes sociales :)</p>
+                 </div>
+            </div>
+        </div>
+       </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+{% endblock %}

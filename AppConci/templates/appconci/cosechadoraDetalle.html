@@ -1,0 +1,42 @@
+{% extends 'appconci/home.html' %}
+
+{% block content %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{cosechadora.titulo}}</h4></p>
+{% if cosechadora.imagenMaquina %}
+    <p><img src="{{cosechadora.imagenMaquina.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{cosechadora.marca}}</p>
+<p>Modelo: {{cosechadora.modelo}}</p>
+<p>Descripción: {{cosechadora.descripcion}}</p>
+<p>Año: {{cosechadora.year}}</p>
+<p>Precio(US$): {{cosechadora.precio}}</p>
+<p>Teléfono de Contacto: {{cosechadora.telefonoContacto}}</p>
+<p>Email de Contacto: {{cosechadora.emailContacto}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not cosechadora.comentarios.all %}
+        No han comentado esta maquina
+    {% else %}
+        {% for comentario in cosechadora.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' cosechadora.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+
+{% endblock %}
