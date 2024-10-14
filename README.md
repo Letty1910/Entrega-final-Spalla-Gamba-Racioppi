@@ -1,6 +1,9 @@
 Proyecto Final Coder House - Python
+
 Comisión: 57825
+
 Alumno: Agustin Spalla, Leticia Gamba y Leandro Racioppi
+
 Nombre del Proyecto
 Venta de Maquinaria Agricola 🚜
 
