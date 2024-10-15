@@ -1,5 +1,5 @@
-{% extends 'appconci/home.html' %}
-
+{% extends 'AppConci/home.html' %}
+{% load static %}
 {% block content %}
 
 <br>
@@ -26,7 +26,7 @@
     <br>
     <div class="container">
     {% if not cosechadora.comentarios.all %}
-        No han comentado esta maquina
+        No han comentado este instrumento
     {% else %}
         {% for comentario in cosechadora.comentarios.all %}
         <p><strong>{{comentario.nombre}}</strong></p>
@@ -38,5 +38,5 @@
     <a href="{% url 'comentario' cosechadora.pk %}">Agrega un Comentario</a>
     </div>
 </div>
-
+<br>
 {% endblock %}
