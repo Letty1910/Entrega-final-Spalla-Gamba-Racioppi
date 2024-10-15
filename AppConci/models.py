@@ -6,6 +6,7 @@ class MaquinaAgricola(models.Model):
         ('Tractores', 'Tractores'),
         ('Cosechadoras', 'Cosechadoras'),
     ]
+
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     titulo = models.CharField(max_length=200)
     maquina = models.CharField(max_length=15, choices=Maquina_Seleccion, default='Tractores')
@@ -22,7 +23,7 @@ class MaquinaAgricola(models.Model):
     class Meta:
         ordering = ['usuario', '-fechaPublicacion']
 
-    def __str__(self):
+    def _str_(self):
         return self.titulo    
 
 class Comentario(models.Model):
@@ -34,7 +35,7 @@ class Comentario(models.Model):
     class Meta:
         ordering = ['-fechaComentario']
 
-    def __str__(self):
+    def _str_(self):
         return '%s - %s' % (self.nombre, self.comentario)
     
 
@@ -45,7 +46,7 @@ class Comentario(models.Model):
 #     telefono = models.CharField(max_length=15)
 #     localidad = models.CharField(max_length=100)
 
-#     def __str__(self):
+#     def _str_(self):
 #         return self.nombre_completo
 
 # class Tractor(models.Model):
@@ -53,7 +54,7 @@ class Comentario(models.Model):
 #     modelo = models.CharField(max_length=100)
 #     serie = models.CharField(max_length=100)
 
-#     def __str__(self):
+#     def _str_(self):
 #         return f"{self.familia} {self.modelo}"
 
 # class Cosechadora(models.Model):
@@ -61,5 +62,5 @@ class Comentario(models.Model):
 #     modelo = models.CharField(max_length=100)
 #     serie = models.CharField(max_length=100)
 
-#     def __str__(self):
+#     def _str_(self):
 #         return f"{self.familia} {self.modelo}"
