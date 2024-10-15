@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.template import Template, Context
 from django.template import loader
-from AppConci.models import Cliente
+from django.contrib.auth.views import Cliente
 
 def saludo(request):
     return HttpResponse("Hola clientes del Grupo Conci")
