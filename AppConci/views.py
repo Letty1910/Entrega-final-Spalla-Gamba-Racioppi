@@ -4,19 +4,19 @@ from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from .models import MaquinaAgricola, Comentario
-from .forms import ActualizacionMaquina, FormularioCambioPassword, FormularioEdicion, FormularioNuevaMaquina, FormularioRegistroUsuario, FormularioComentario
+from .forms import FormularioNuevaMaquina, ActualizacionMaquinaAgricola, FormularioCambioPassword, FormularioEdicion, FormularioNuevaMaquina, FormularioRegistroUsuario, FormularioComentario
 
 
 class HomeView(LoginRequiredMixin, TemplateView):
-    template_name = 'appconci/home.html'
+    template_name = 'AppConci/home.html'
 
 class LoginPagina(LoginView):
-    template_name = 'appconci/login.html'
-    fields = '__all__'
+    template_name = 'AppConci/login.html'
+    fields = 'all'
     redirect_autheticated_user = True
     success_url = reverse_lazy('home')
 
@@ -24,7 +24,7 @@ class LoginPagina(LoginView):
         return reverse_lazy('home')
 
 class RegistroPagina(FormView):
-    template_name = 'appconci/registro.html'
+    template_name = 'AppConci/registro.html'
     form_class = FormularioRegistroUsuario
     redirect_autheticated_user = True
     success_url = reverse_lazy('home')
@@ -42,7 +42,7 @@ class RegistroPagina(FormView):
 
 class UsuarioEdicion(UpdateView):
     form_class = FormularioEdicion
-    template_name= 'appconci/edicionPerfil.html'
+    template_name= 'AppConci/edicionPerfil.html'
     success_url = reverse_lazy('home')
 
     def get_object(self):
@@ -50,96 +50,97 @@ class UsuarioEdicion(UpdateView):
 
 class CambioPassword(PasswordChangeView):
     form_class = FormularioCambioPassword
-    template_name = 'appconci/passwordCambio.html'
+    template_name = 'AppConci/passwordCambio.html'
     success_url = reverse_lazy('password_exitoso')
 
 def password_exitoso(request):
-    return render(request, 'appconci/passwordExitoso.html', {})
+    return render(request, 'AppConci/passwordExitoso.html', {})
 
-
-# TRACTORES
-
-class TractorLista(LoginRequiredMixin, ListView):
-    context_object_name = 'tractores'
-    queryset = MaquinaAgricola.objects.filter(maquina__startswith='Tractores')
-    template_name = 'appconci/listaTractores.html'
-    login_url = '/login/'
-
-class TractorDetalle(LoginRequiredMixin, DetailView):
-    model = MaquinaAgricola
-    context_object_name = 'tractor'
-    template_name = 'appconci/tractorDetalle.html'
-
-class TractorUpdate(LoginRequiredMixin, UpdateView):
-    model = MaquinaAgricola
-    form_class = ActualizacionMaquina
-    success_url = reverse_lazy('tractores')
-    context_object_name = 'tractor'
-    template_name = 'appconci/tractorEdicion.html'
-
-class TractorDelete(LoginRequiredMixin, DeleteView):
-    model = MaquinaAgricola
-    success_url = reverse_lazy('tractores')
-    context_object_name = 'tractor'
-    template_name = 'appconci/tractorBorrado.html'
 
 # COSECHADORA
 
 class CosechadoraLista(LoginRequiredMixin, ListView):
-    context_object_name = 'bajos'
-    queryset = MaquinaAgricola.objects.filter(maquina__startswith='Cosechadoras')
-    template_name = 'appconci/listaCosechadoras.html'
+    context_object_name = 'cosechadora'
+    queryset = MaquinaAgricola.objects.filter(maquina__startswith='cosechadora')
+    template_name = 'AppConci/listaCosechadora.html'
+    login_url = '/login/'
 
-class CosechadoraDetalle(LoginRequiredMixin,DetailView):
+class CosechadoraDetalle(LoginRequiredMixin, DetailView):
     model = MaquinaAgricola
-    context_object_name = 'bajo'
-    template_name = 'appconci/cosechadoraDetalle.html'
+    context_object_name = 'cosechadora'
+    template_name = 'AppConci/cosechadoraDetalle.html'
 
 class CosechadoraUpdate(LoginRequiredMixin, UpdateView):
     model = MaquinaAgricola
-    form_class = ActualizacionMaquina
-    success_url = reverse_lazy('cosechadoras')
+    form_class = ActualizacionMaquinaAgricola
+    success_url = reverse_lazy('cosechadora')
     context_object_name = 'cosechadora'
-    template_name = 'appconci/cosechadoraEdicion.html'
+    template_name = 'AppConci/cosechadoraEdicion.html'
 
 class CosechadoraDelete(LoginRequiredMixin, DeleteView):
     model = MaquinaAgricola
-    success_url = reverse_lazy('cosechadoras')
-    context_object_name = 'cosechadora'
-    template_name = 'appconci/cosechadoraBorrado.html'
+    success_url = reverse_lazy('cosechadora')
+    context_object_name = 'Cosechadora'
+    template_name = 'AppConci/cosechadoraBorrado.html'
 
-# # OTRO
+# TRACTOR
 
-# class OtroLista(LoginRequiredMixin, ListView):
-#     context_object_name = 'otros'
-#     queryset = Instrumento.objects.filter(instrumento__startswith='otro')
-#     template_name = 'appconci/listaOtros.html'
+class TractorLista(LoginRequiredMixin, ListView):
+    context_object_name = 'tractor'
+    queryset = MaquinaAgricola.objects.filter(maquina__startswith='tractor')
+    template_name = 'AppConci/listaTractor.html'
 
-# class OtroDetalle(LoginRequiredMixin, DetailView):
-#     model = Instrumento
-#     context_object_name = 'otro'
-#     template_name = 'appconci/otroDetalle.html'
+class TractorDetalle(LoginRequiredMixin,DetailView):
+    model = MaquinaAgricola
+    context_object_name = 'Tractor'
+    template_name = 'AppConci/tractorDetalle.html'
 
-# class OtroUpdate(LoginRequiredMixin, UpdateView):
-#     model = Instrumento
-#     form_class = ActualizacionInstrumento
-#     success_url = reverse_lazy('otros')
-#     context_object_name = 'otro'
-#     template_name = 'appconci/otroEdicion.html'
+class TractorUpdate(LoginRequiredMixin, UpdateView):
+    model = MaquinaAgricola
+    form_class = ActualizacionMaquinaAgricola
+    success_url = reverse_lazy('Tracctor')
+    context_object_name = 'Tractor'
+    template_name = 'AppConci/tractorEdicion.html'
 
-# class OtroDelete(LoginRequiredMixin, DeleteView):
-#     model = Instrumento
-#     success_url = reverse_lazy('otros')
-#     context_object_name = 'otro'
-#     template_name = 'appconci/otroBorrado.html'
+class TractorDelete(LoginRequiredMixin, DeleteView):
+    model = MaquinaAgricola
+    success_url = reverse_lazy('tractor')
+    context_object_name = 'tractor'
+    template_name = 'AppConci/tractorBorrado.html'
 
-# CREACION MAQUINA
+
+# OTRO
+
+class OtroLista(LoginRequiredMixin, ListView):
+    context_object_name = 'otros'
+    queryset = MaquinaAgricola.objects.filter(maquina__startswith='otro')
+    template_name = 'AppConci/listaOtros.html'
+
+class OtroDetalle(LoginRequiredMixin, DetailView):
+    model = MaquinaAgricola
+    context_object_name = 'otro'
+    template_name = 'AppConci/otroDetalle.html'
+
+class OtroUpdate(LoginRequiredMixin, UpdateView):
+    model = MaquinaAgricola
+    form_class = ActualizacionMaquinaAgricola
+    success_url = reverse_lazy('otros')
+    context_object_name = 'otro'
+    template_name = 'AppConci/otroEdicion.html'
+
+class OtroDelete(LoginRequiredMixin, DeleteView):
+    model = MaquinaAgricola
+    success_url = reverse_lazy('otros')
+    context_object_name = 'otro'
+    template_name = 'AppConci/otroBorrado.html'
+
+# CREACION DE MAQUINARIA
 
 class MaquinaCreacion(LoginRequiredMixin, CreateView):
     model = MaquinaAgricola
     form_class = FormularioNuevaMaquina
-    success_url = reverse_lazy('appconci')
-    template_name = 'appconci/maquinaCreacion.html'
+    success_url = reverse_lazy('home')
+    template_name = 'AppConci/MaquinaCreacion.html'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -150,7 +151,7 @@ class MaquinaCreacion(LoginRequiredMixin, CreateView):
 class ComentarioPagina(LoginRequiredMixin, CreateView):
     model = Comentario
     form_class = FormularioComentario
-    template_name = 'appconci/comentario.html'
+    template_name = 'AppConci/comentario.html'
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
@@ -160,4 +161,4 @@ class ComentarioPagina(LoginRequiredMixin, CreateView):
 # ACERCA DE MI
 
 def about(request):
-    return render(request, 'appconci/AcercaDeMi.html', {})
+    return render(request, 'AppConci/acercaDeMi.html', {})
