@@ -1,12 +1,11 @@
-{% extends 'appconci/home.html' %}
-
+{% extends 'AppConci/home.html' %}
+{% load static %}
 {% block content %}
 
 <br>
 <br>
 
 {% if user.id == cosechadora.usuario.id %}
-
 <div class="container">
 
     <h4>Editar Cosechadora</h4>
@@ -16,12 +15,11 @@
 <div class="container">
     <div class="form-group">
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Guardar</button>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>    
 </div>
-<br>
 {% else %}
 <div class="container">
 <h4>No tienes acceso a esta pagina!</h4>

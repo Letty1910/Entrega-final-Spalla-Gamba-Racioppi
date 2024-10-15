@@ -1,5 +1,5 @@
-{% extends 'appconci/home.html' %}
-
+{% extends 'AppConci/home.html' %}
+{% load static %}
 {% block content %}
 
 <br>
@@ -17,15 +17,15 @@
 
 <div class="container text-center">
     <div class="row">
-            {% for cosechadora in cosechadoras %}
+            {% for cosechadora in cosechadora %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                <img src="{{bajo.imagenMaquina.url}}" class="" width="100px">
-                {{bajo.titulo}}
+                <img src="{{cosechadora.imagenCosechadora.url}}" class="" width="100px">
+                {{cosechadora.titulo}}
                 <a href="{% url 'cosechadora' cosechadora.id %}"><i class="bi bi-eye"></i></a>
-                {% if user.id == bajo.usuario.id %}
-                <a href="{% url 'cosehadora_editar' cosehadora.id %}"><i class="bi bi-pencil-fill"></i></a>
-                <a href="{% url 'cosehadora_eliminar' cosehadora.id %}"><i class="bi bi-trash text-danger"></i></a>
+                {% if user.id == cosechadora.usuario.id %}
+                <a href="{% url 'cosechadora_editar' cosechadora.id %}"><i class="bi bi-pencil-fill"></i></a>
+                <a href="{% url 'cosechadora_eliminar' cosechadora.id %}"><i class="bi bi-trash text-danger"></i></a>
                 <br>
                 <br>
                 <br>
