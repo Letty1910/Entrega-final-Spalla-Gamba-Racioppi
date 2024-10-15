@@ -1,5 +1,5 @@
-{% extends 'appconci/home.html' %}
-
+{% extends 'AppConci/home.html' %}
+{% load static %}
 {% block content %}
 
 <br>
@@ -9,7 +9,7 @@
 
 <p><h4>{{tractor.titulo}}</h4></p>
 
-{% if tractor.imagenInstrumento %}
+{% if tractor.imagenTractor.url %}
     <p><img src="{{tractor.imagenTractor.url}}" alt=""></p>
 {% endif %}
 <p>Marca: {{tractor.marca}}</p>
@@ -27,7 +27,7 @@
     <br>
     <div class="container">
     {% if not tractor.comentarios.all %}
-        No han comentado este instrumento
+        No han comentado esta Maquinaria
     {% else %}
         {% for comentario in tractor.comentarios.all %}
         <p><strong>{{comentario.nombre}}</strong></p>

@@ -1,12 +1,12 @@
-{% extends 'appconci/home.html' %}
-
+{% extends 'AppConci/home.html' %}
+{% load static %}
 {% block content %}
 
 <br>
 <br>
 
 <div class="container">
-    <h1 class="text-center">Agrega una nueva maquina</h1>
+    <h1 class="text-center">Agrega un nuevo Maquinaria</h1>
 <div class="form-group">
 <form style=" width: 50vw; margin-left : 15vw;" method="post" enctype="multipart/form-data">{% csrf_token %}
     {{ form.as_p }}
