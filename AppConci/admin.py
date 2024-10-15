@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import MaquinaAgricola, Comentario
 
-# Register your models here.
+admin.site.register(MaquinaAgricola)
+
+admin.site.register(Comentario)
