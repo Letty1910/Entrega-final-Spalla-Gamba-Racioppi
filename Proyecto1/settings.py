@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: AppConci_DIR / 'subdir'.
-APPCONCI_DIR = Path(_file_).resolve().parent.parent
+APPCONCI_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
