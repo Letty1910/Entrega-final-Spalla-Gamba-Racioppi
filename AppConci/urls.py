@@ -1,9 +1,11 @@
 from django.urls import path
-from .views import (HomeView, LoginPagina, RegistroPagina, UsuarioEdicion, CambioPassword, 
-                    CosechadoraLista, TractorLista, OtroLista, CosechadoraDetalle, 
-                    TractorDetalle, OtroDetalle, CosechadoraUpdate, TractorUpdate, 
-                    OtroUpdate, CosechadoraDelete, TractorDelete, OtroDelete, 
-                    MaquinaCreacion, ComentarioPagina)
+from .views import (
+    HomeView, LoginPagina, RegistroPagina, UsuarioEdicion, CambioPassword, 
+    CosechadoraLista, TractorLista, OtroLista, CosechadoraDetalle, 
+    TractorDetalle, OtroDetalle, CosechadoraUpdate, TractorUpdate, 
+    OtroUpdate, CosechadoraDelete, TractorDelete, OtroDelete, 
+    MaquinaCreacion, ComentarioPagina
+)
 from django.contrib.auth.views import LogoutView
 from . import views
 
@@ -32,12 +34,12 @@ urlpatterns = [
     path('tractorBorrado/<int:pk>/', TractorDelete.as_view(), name='tractor_eliminar'),
     path('otroBorrado/<int:pk>/', OtroDelete.as_view(), name='otro_eliminar'),
 
-    path('maquinaCreacion/<int:pk>/', MaquinaCreacion.as_view(), name='nuevo'),
+    # Aquí se requiere el argumento pk
+    path('maquinaCreacion/', MaquinaCreacion.as_view(), name='nuevo'),
 
     path('cosechadoraDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
     path('tractorDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
     path('otroDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
 
     path('acercaDeMi/', views.about, name='acerca_de_mi'),
-    
-    ]
+]
