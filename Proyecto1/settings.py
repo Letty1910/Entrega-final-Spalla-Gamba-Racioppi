@@ -39,7 +39,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Proyecto1.urls'
+ROOT_URLCONF = 'AppConci.urls'
 
 TEMPLATES = [
     {
@@ -57,12 +57,12 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Proyecto1.wsgi.application'
+WSGI_APPLICATION = 'AppConci.wsgi.application'
 
 
 
 
-DATAAPPCONCI = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': APPCONCI_DIR / 'db.sqlite3',

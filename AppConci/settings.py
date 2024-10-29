@@ -13,11 +13,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = Path(__file__).resolve().parent.parent
+# Build paths inside the project like this: AppConci_DIR / 'subdir'.
+APPCONCI_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+
+LOGIN_URL = 'login'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-eym(uj3vhy415j4xh1358f4nkix3@09uz7kuhj^gj!pognhiu@'
@@ -115,7 +118,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'AppConci/static')
+    os.path.join(APPCONCI_DIR, 'AppConci/static')
 ]
 
 # Default primary key field type
