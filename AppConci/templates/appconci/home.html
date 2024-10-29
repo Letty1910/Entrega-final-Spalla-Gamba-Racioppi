@@ -18,64 +18,52 @@
   <img src="{% static 'C:\Users\Leticia Gamba\OneDrive\Escritorio\Entrega-final-Spalla-Gamba-Racioppi-main\AppConci\static\images\fondo.jpg' %}" width="1580px">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark py-2 fixed-top">
-      <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navmenu">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'home' %}"><span class="text-primary">INICIO</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'lista_cosechadora' %}">Cosechadora</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'lista_tractor' %}">Tractor</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'lista_otros' %}">Otros</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'acerca_de_mi' %}">Nosotros</a>
-                </li>
-                <div class="container"></div>
-                <div class="container"></div>
-                <div class="container"></div>
-                <div class="container"></div>
-                <div class="container"></div>
-                {% if request.user.is_authenticated %}
-                <div class="container">
-                <li class="nav-item">
-                  <span class="text-light"> Hola <strong>{{request.user.first_name}}</strong>!</span>
-                </li>
-                </div>
-                <div class="container">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'editar_perfil' %}"><span class="text-primary">Perfil</span></a>
-                </li>
-                </div>
-                <div class="container">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}"><span class="text-primary">Logout</span></a>
-                </li>
-                </div>
-                {% else %}
-                <div class="container">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}"><span class="text-primary">Login</span></a>
-                </li>
-                </div>
-                <div class="container">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'registro' %}"><span class="text-primary">Registrate</span></a>
-                </li> 
-                </div>         
-              {% endif %}
-           </ul>
-          </div>    
-      </div>     
-  </nav>
+      <div class="container d-flex justify-content-between">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}"><span class="text-primary">INICIO</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'lista_cosechadora' %}">Cosechadora</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'lista_tractor' %}">Tractor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'lista_otros' %}">Otros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'acerca_de_mi' %}">Nosotros</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">  <!-- Esto coloca el saludo a la derecha -->
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <span class="text-light">Hola <strong>{{ request.user.first_name }}</strong>!</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'editar_perfil' %}"><span class="text-primary">Perfil</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}"><span class="text-primary">Logout</span></a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}"><span class="text-primary">Login</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'registro' %}"><span class="text-primary">Registrate</span></a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
       {% block content %}
 
     <!-- Inicio -->

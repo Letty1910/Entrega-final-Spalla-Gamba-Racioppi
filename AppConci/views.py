@@ -89,7 +89,7 @@ class CosechadoraDelete(LoginRequiredMixin, DeleteView):
 
 class TractorLista(LoginRequiredMixin, ListView):
     context_object_name = 'tractores'
-    queryset = MaquinaAgricola.objects.filter(maquina__startswith='tractor')
+    queryset = MaquinaAgricola.objects.filter(maquina='Tractores')
     template_name = 'AppConci/listaTractor.html'
 
 class TractorDetalle(LoginRequiredMixin, DetailView):
@@ -141,11 +141,11 @@ class OtroDelete(LoginRequiredMixin, DeleteView):
 class MaquinaCreacion(LoginRequiredMixin, CreateView):
     model = MaquinaAgricola
     form_class = FormularioNuevaMaquina
-    success_url = reverse_lazy('home')
-    template_name = 'AppConci/MaquinaCreacion.html'
+    success_url = reverse_lazy('lista_tractor')
+    template_name = 'AppConci/maquinaCreacion.html'
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.usuario = self.request.user 
         return super(MaquinaCreacion, self).form_valid(form)
 
 # COMENTARIOS
