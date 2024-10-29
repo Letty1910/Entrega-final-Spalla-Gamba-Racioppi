@@ -1,58 +1,54 @@
-Proyecto Final Coder House - Python
+# Proyecto Final CoderHouse - Python
 
-Comisión: 57825
+### Comisión: 57825  
+### Integrantes: Agustín Spalla, Leticia Gamba, y Leandro Racioppi
 
-Alumno: Agustin Spalla, Leticia Gamba y Leandro Racioppi
+---
 
-Nombre del Proyecto
-Venta de Maquinaria Agricola 🚜
+## Nombre del Proyecto
+**Venta de Maquinaria Agrícola** 🚜
 
-Versión
-1.0
+## Versión
+**1.0**
 
-Descripción del Proyecto ✏️
+## Descripción del Proyecto ✏️
 
-Entorno desticado a la comercializacion de Maquinaria Agricola.
+Este proyecto presenta una plataforma para la comercialización de maquinaria agrícola, donde los usuarios pueden interactuar y gestionar anuncios de equipos como tractores y cosechadoras. Para acceder a las funcionalidades de la plataforma, los usuarios deben:
 
-Para poder ingresar a la Pagina, debemos realizar una de las seguientes acciones:
+- **Registrarse**: Crear una cuenta con usuario y contraseña.
+- **Iniciar Sesión**: Acceder con usuario y contraseña.
 
-*Registrarse con Usuario y Contraseña
+### Funcionalidades Disponibles
 
-*Iniciar sesion con Usuario y Contraseña
+Una vez autenticados, los usuarios pueden:
 
-Una vez auntentificado, los clientes podran navgar en el sitio web.
+- **Publicar Maquinaria**: Añadir anuncios de equipos agrícolas como tractores y cosechadoras.
+- **Visualizar Equipos**: Explorar equipos listados en categorías como "Tractores" y "Cosechadoras".
+- **Comentar**: Interactuar mediante comentarios en publicaciones.
+- **Editar Perfil**: Modificar la información de perfil o cambiar la contraseña.
+- **Cerrar Sesión** y **Reiniciar Sesión**: Gestión de acceso y autenticación en la plataforma.
 
-Los clientes dentro de la pagina podran:
+### Instrucciones de Ejecución
 
-Publicar Maquinaria tal como Tractores o Cosechadoras 
+Para ejecutar el proyecto desde la terminal:
 
-Visualizar euqipos en seccion como "Tractores" o "Cosechadora"
-
-Comentar sobre los mismos
-
-Editar el perfil de Usuario o Cambiar su constraseña
-
-Cerrar Sesión
-
-Login en caso de haber cerrado sesión
-
-
+1. Activar el entorno virtual con:
+   ```bash
+   .entorno-virtual\Scripts\Activate.ps1
+2. Instalar la biblioteca Pillow (requerida para el manejo de imágenes):
+   ```bash
+   pip install pillow
+3. Iniciar el servidor Django:
+   ```bash
+   python manage.py runserver
 
 
-Tecnología Utilizada
-
-Front-End 🌐
-
-HTML 5
-
-CSS 3
-
-Javascript ES6
-
-Bootstrap v5.2.3
-
-Back-End 🖱️
-
-Python 3.12.5
-
-Django 5.1.2
+### Tecnologías Utilizadas
+1. Front-End 🌐
+- HTML 5
+- CSS 3
+- JavaScript ES6
+- Bootstrap v5.2.3
+2. Back-End 🖱️
+- Python 3.12.5
+- Django 5.1.2
